@@ -4,15 +4,12 @@ $("#day_div").delay(1000).fadeOut(5000).delay(1000).fadeIn(5000, function() {
 		});
 }
 
-//OCANVAS INSTANTIATION
+
 var canvas = oCanvas.create({
 	canvas: "#canvas",
 	fps: 60
 });
 
-//MAIN MENU
-
-// GLOBAL CONSTANTS
 var ourCar,collFlag=false;
 var isPosReady=0;
 var dur=3000,jumptest=0,move;
@@ -20,7 +17,7 @@ var star,isStar=0;
 var lives=3;
 var score=0;
 var started=0;
-//GLOBAL LISTS
+
 
 var badCar=new Array();
 var randomPos=[0,0,0];
@@ -29,7 +26,6 @@ var buildArray = new Array(3);
 var laneVariables = {"laneSpeed": 50, "lanedy": 5, "laney": 120};
 var lanePos = [120, 120 - 90, 120 - 180, 120 - 270];
 
-//HELPER FUNCTIONS
 Math.easeInQuint = function(t,b,c,d){
 		t /=d;
 		return c*t*t*t*t*t+b
@@ -44,7 +40,6 @@ function getRandomPos(){
     isPosReady=1;
 }
 
-//INITIALISERS
 
 function initCar(canvas){
 	ourCar = canvas.display.image({
@@ -56,14 +51,14 @@ function initCar(canvas){
 		currLane:1,
 		});
 	canvas.addChild(ourCar);
-	//alert('added');
+	
 
 }
 
 function initTraffic(canvas){	
-	//Fix for multiple calls to initTraffic////////////		
+			
 	isPosReady=0; 
-	//////////////////////
+	
 	if(badCar.length>12)
 	  badCar.shift();
 	var ddx=-350;
@@ -140,7 +135,7 @@ function initLanes(canvas){
 
 
 
-//SPRITE GENERATORS
+
 function getCar(currentLane, diffX){
     var carNum=parseInt(Math.random()*5)+1;
     var x = canvas.display.image({
@@ -171,7 +166,7 @@ function getStar(){
   }
 
    
-//GAME LOOP FUNCTIONS
+
 function moveLanes(){
 	laneVariables.lanedy=6-dur/1000;
 	if(started)
@@ -208,13 +203,11 @@ function moveBuilding(){
 
 
 }
-
-//COLLISION HANDLERS 
 function checkCollision()
 {	var ourCary=ourCar.y;
 	var badCary=0;
 	var badCarDx=0
-	//var flag=0;
+
 	for(i=0;i<badCar.length;i++)
 		{
 			badCarDx=badCar[i].dx;
@@ -259,9 +252,7 @@ function checkSideCollision(){
 		
 		 if(Math.abs(ourCar.y-badCar[i].y)<75 && Math.abs(ourCar.x+140*move-badCar[i].x)<50)
 		{
-			  /*star.x=(ourcar.x+img1.x)/2;
-	          star.y=(ourcar.y+img1.y)/2
-			  isStar=1;*/
+			  
 			  dur=5000;
 			  move=0;
 			  if(isStar==0)
@@ -313,8 +304,7 @@ function onCollision(){
 
 function gameOver(){
 	canvas.timeline.stop();
-	//fbapi.sendScore(score,2);
-	//fbapi.getHighScores(score,2);
+
 	
 	var scoreDisplay = canvas.display.image({
 			x: 0,
@@ -371,7 +361,6 @@ function gameOver(){
 	scoreDisplay.addChild(title);
 }
 
-//MAIN GAME LOOP
 canvas.setLoop(function(){
 	scores.text="Score : "+Math.floor(score);
 	if(lives==0){
@@ -400,7 +389,7 @@ canvas.setLoop(function(){
 
 
 
-//ONE TIME FUNCTIONS
+
 var scores = canvas.display.text({
 	x: 75,
 	y: 25,
@@ -417,7 +406,6 @@ initBuilding(canvas);
 initCar(canvas);
 
 
-//MAIN MENU
 var mainMenuBg = canvas.display.image({
 			x: 0,
 			y: 0,
@@ -512,7 +500,6 @@ button.bind("click tap", function () {
 });
 
 
-//KEY BIND FUNCTIONS
 canvas.bind("keydown", function (e) {
 	if(jumptest==0){
 	    
