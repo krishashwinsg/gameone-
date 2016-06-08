@@ -422,7 +422,7 @@ var text = canvas.display.text({
 	y: 230,
 	origin: { x: "center", y: "center" },
 	font: "bold 40px sans-serif",
-	text: "Press Up key to accelerate,\nDown key to deaccelerate,\nSpace to jump and Side keys\n to switch between the lines.",
+	text: "Space to jump and Side keys\n to switch between the lines.",
 	fill: "#ffffff"
 });
 var button = canvas.display.image({
