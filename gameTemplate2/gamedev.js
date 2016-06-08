@@ -344,11 +344,10 @@ function gameOver(){
 	});
 
 	var highScores = {
-		"Jude":30,
-		"Jaz":50,
-		"Dev":50,
-		"Sid":30,
-		"Deepak":50,
+		"Ashwin":3200,
+		"Krish":3000,
+		"Alex":2063,
+		"Joe":30,
 	}
 	for(var key in highScores){
 		scoreNames.text+=key+"\n";
