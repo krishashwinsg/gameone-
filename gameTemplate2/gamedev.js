@@ -322,7 +322,7 @@ function gameOver(){
 		y: 50,
 		font: "bold 25px sans-serif",
 		origin:{x:"center", y:"center"},
-		text: "Your Score is "+Math.floor(score),
+		text: "You died, your Score is "+Math.floor(score),
 		fill: "#ffffff"
 	});
 	var scoreNames = canvas.display.text({
